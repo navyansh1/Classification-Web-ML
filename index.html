@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Classification App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Online ML Classification Tool</h1>
+        <p class="subtitle">Upload CSV, Select Features & Compare Models</p>
+        
+        
+        <div class="upload-section">
+            <input type="file" id="csvFile" accept=".csv">
+            <label for="csvFile" class="upload-btn">Choose CSV File</label>
+            <span id="fileName"></span>
+        </div>
+
+
+
+        <div id="dataInfo" class="info-box" style="display: none;">
+            <h3>Dataset Info</h3>
+            <p id="dataStats"></p>
+        </div>
+
+        <div id="featureSelection" class="info-box" style="display: none;"></div>
+
+        <button id="confirmBtn" style="display: none;">Train Models</button>
+
+        <div id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Training models...</p>
+        </div>
+
+        <div id="results" style="display: none;">
+            <h2>Model Performance</h2>
+            <div class="results-grid">
+                <div class="model-card">
+                    <h3>Logistic Regression</h3>
+                    <div class="accuracy" id="logisticAccuracy">-</div>
+                    <p>Accuracy</p>
+                </div>
+                <div class="model-card">
+                    <h3>K-Nearest Neighbors</h3>
+                    <div class="accuracy" id="knnAccuracy">-</div>
+                    <p>Accuracy</p>
+                </div>
+                <div class="model-card">
+                    <h3>Decision Tree</h3>
+                    <div class="accuracy" id="treeAccuracy">-</div>
+                    <p>Accuracy</p>
+                </div>
+                <div class="model-card">
+                    <h3>Random Forest</h3>
+                    <div class="accuracy" id="rfAccuracy">-</div>
+                    <p>Accuracy</p>
+                </div>
+                <div class="model-card">
+                    <h3>Naive Bayes</h3>
+                    <div class="accuracy" id="nbAccuracy">-</div>
+                    <p>Accuracy</p>
+                </div>
+            </div>
+            <canvas id="chartCanvas"></canvas>
+        </div>
+    </div>
+
+    <!-- <footer class="footer">
+        <p>Made by Navyansh @ <span class="company">Ganit Inc</span></p>
+    </footer> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://www.lactame.com/lib/ml/6.0.0/ml.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
